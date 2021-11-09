@@ -3,6 +3,8 @@ package main
 import (
 	"fmt"
 	"math/rand"
+	"os"
+	"os/exec"
 	"time"
 )
 
@@ -57,6 +59,9 @@ func main () {
 		} else {
 			fmt.Println("Ups... You can't move there... ")
 		}
+		cmd := exec.Command("clear")
+		cmd.Stdout = os.Stdout
+		cmd.Run()
 		printBoard(board)
 	}
 	board[start.x][start.y] = "$"
